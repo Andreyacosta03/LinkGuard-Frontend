@@ -1,0 +1,64 @@
+# Global settings
+* text=auto eol=lf
+
+# React Native & Core Web
+*.js      text eol=lf
+*.jsx     text eol=lf
+*.ts      text eol=lf
+*.tsx     text eol=lf
+*.mjs     text eol=lf
+*.cjs     text eol=lf
+*.json    text eol=lf
+
+# Expo Specific
+app.json        text eol=lf
+app.config.js   text eol=lf
+app.config.ts   text eol=lf
+eas.json        text eol=lf
+*.expo-env.d.ts text eol=lf
+
+# Styles & Content
+*.css     text eol=lf
+*.scss    text eol=lf
+*.md      text eol=lf
+*.mdx     text eol=lf
+*.yml     text eol=lf
+*.yaml    text eol=lf
+
+# Config & Lockfiles
+*.env           text eol=lf
+*.env.* text eol=lf
+*.editorconfig  text eol=lf
+*.gitattributes text eol=lf
+package-lock.json text eol=lf
+pnpm-lock.yaml    text eol=lf
+yarn.lock         text eol=lf
+
+# Native Code (Android & iOS Prebuilds)
+*.sh      text eol=lf
+*.gradle  text eol=lf
+*.java    text eol=lf
+*.kt      text eol=lf
+*.m       text eol=lf
+*.mm      text eol=lf
+*.h       text eol=lf
+*.swift   text eol=lf
+*.plist   text eol=lf
+*.xml     text eol=lf
+*.podspec text eol=lf
+Podfile   text eol=lf
+
+# Binary files
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.webp    binary
+*.gif     binary
+*.ico     binary
+*.svg     text eol=lf
+*.ttf     binary
+*.otf     binary
+*.woff    binary
+*.woff2   binary
+*.mp4     binary
+*.mp3     binary
