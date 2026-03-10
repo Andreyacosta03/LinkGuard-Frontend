@@ -7,33 +7,30 @@ import Input from "../src/components/Input";
 import Button from "../src/components/Button";
 import InfoItem from "../src/components/InfoItem";
 import { Form } from "../src/components/FormCard";
-
+import { useInputField } from "../src/hooks/useInputField";
 const ScanScreen = () => {
-  const [input, setInput] = useState<string>("");
-  const [disable, setDisable] = useState<boolean>(true);
   const [isValid, setIsValid] = useState<boolean>(true);
 
   const router = useRouter();
+  const { value, handleInputChange } = useInputField("");
+
   //Capture input and validate URL
-  const handleInputChange = (text: string) => {
-    setInput(text);
-    setDisable(text.trim() === "");
-  };
-  const colorButton = disable ? "#A2A7FF" : "#6366F1";
+
+  let isDisable = value.trim() === "";
+
+  const colorButton = isDisable ? "#A2A7FF" : "#6366F1";
 
   const handleButton = () => {
     try {
       //Validate URL
-      new URL(input);
+      new URL(value);
       setIsValid(true);
-      setDisable(false);
       router.push({
-        pathname: "/ResultFake",
-        params: { url: input },
+        pathname: "/ResultScreen",
+        params: { url: value },
       });
     } catch (error) {
       setIsValid(false);
-      setDisable(true);
     }
   };
 
@@ -56,7 +53,7 @@ const ScanScreen = () => {
             placeholder="https://ejemplo.com"
             onChangeText={handleInputChange}
             keyboardType="url"
-            value={input}
+            value={value}
             autoCapitalize="none"
           />
           <Text
@@ -69,7 +66,7 @@ const ScanScreen = () => {
           </Text>
           <Button
             title="Escanear Enlace"
-            disabled={disable}
+            disabled={isDisable}
             color={colorButton}
             onPress={handleButton}
           />
