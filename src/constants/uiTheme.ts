@@ -1,0 +1,32 @@
+export const UI_THEMES = {
+  safe: {
+    color: "#10b981",
+    bgColor: "#f1fcf6",
+    title: "Enlace Seguro",
+    subtitle: "Este enlace es seguro para visitar",
+    icon: "ShieldCheck",
+    badgeText: "Sin amenazas",
+    showThreats: false,
+    recommendationTitle: "Consejos de Seguridad",
+  },
+  suspicious: {
+    color: "#f97316",
+    bgColor: "#fff7ed",
+    title: "¡Aviso de Riesgo!",
+    subtitle: "Se han detectado posibles amenazas",
+    icon: "ShieldAlert",
+    badgeText: "Amenazas potenciales",
+    showThreats: true,
+    recommendationTitle: "Recomendaciones",
+  },
+  malicious: {
+    color: "#ef4444",
+    bgColor: "#fef2f2",
+    title: "¡Peligro Detectado!",
+    subtitle: "Este enlace contiene amenazas detectadas",
+    icon: "ShieldX",
+    badgeText: "Amenazas detectadas",
+    showThreats: true,
+    recommendationTitle: "Recomendaciones",
+  },
+};
