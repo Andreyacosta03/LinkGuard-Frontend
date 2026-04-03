@@ -1,6 +1,6 @@
 import { View, StyleSheet } from "react-native";
 
-export const Form = ({ children }: { children: React.ReactNode }) => (
+export const FormCard = ({ children }: { children: React.ReactNode }) => (
   <View style={styles.form}>{children}</View>
 );
 
