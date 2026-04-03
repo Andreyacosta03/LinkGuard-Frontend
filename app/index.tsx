@@ -3,18 +3,17 @@ import { useRouter } from "expo-router";
 import { View, Text, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Scan } from "lucide-react-native";
-import Input from "../src/components/Input";
-import Button from "../src/components/Button";
-import InfoItem from "../src/components/InfoItem";
-import { Form } from "../src/components/FormCard";
+import { Input } from "../src/components/Input";
+import { Button } from "../src/components/Button";
+import { InfoItem } from "../src/components/InfoItem";
+import { FormCard } from "../src/components/FormCard";
 import { useInputField } from "../src/hooks/useInputField";
+
 const ScanScreen = () => {
   const [isValid, setIsValid] = useState<boolean>(true);
 
   const router = useRouter();
   const { value, handleInputChange } = useInputField("");
-
-  //Capture input and validate URL
 
   let isDisable = value.trim() === "";
 
@@ -22,13 +21,25 @@ const ScanScreen = () => {
 
   const handleButton = () => {
     try {
-      //Validate URL
-      new URL(value);
-      setIsValid(true);
-      router.push({
-        pathname: "/ResultScreen",
-        params: { url: value },
-      });
+      const validateUrl = new URL(value);
+
+      // 1. Validate protocol
+      const hasValidProtocol =
+        validateUrl.protocol === "http:" || validateUrl.protocol === "https:";
+
+      // 2. Validate hostname with a regex  //
+      const hostRegex = /^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$/i;
+      const hasValidDomain = hostRegex.test(validateUrl.hostname);
+
+      if (hasValidProtocol && hasValidDomain) {
+        setIsValid(true);
+        router.push({
+          pathname: "/ResultScreen",
+          params: { url: value },
+        });
+      } else {
+        setIsValid(false);
+      }
     } catch (error) {
       setIsValid(false);
     }
@@ -47,7 +58,7 @@ const ScanScreen = () => {
         </View>
 
         {/* Form Card */}
-        <Form>
+        <FormCard>
           <Input
             label="Ingresa el enlace a escanear"
             placeholder="https://ejemplo.com"
@@ -70,7 +81,7 @@ const ScanScreen = () => {
             color={colorButton}
             onPress={handleButton}
           />
-        </Form>
+        </FormCard>
 
         {/* Info Items */}
         <View style={styles.infoList}>
