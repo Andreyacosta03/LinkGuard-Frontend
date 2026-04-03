@@ -4,11 +4,13 @@ import { View, Text, StyleSheet } from "react-native";
 interface InfoItemProps {
   title: string;
   desc: string;
-  iconColor: string;
+  iconColor?: string;
 }
-const InfoItem = ({ title, desc, iconColor }: InfoItemProps) => (
+export const InfoItem = ({ title, desc, iconColor }: InfoItemProps) => (
   <View style={styles.infoItem}>
-    <View style={[styles.dot, { backgroundColor: iconColor }]} />
+    <View
+      style={[styles.dot, iconColor ? { backgroundColor: iconColor } : {}]}
+    />
     <View>
       <Text style={styles.infoTitle}>{title}</Text>
       <Text style={styles.infoDesc}>{desc}</Text>
@@ -37,4 +39,3 @@ const styles = StyleSheet.create({
     color: "#64748B",
   },
 });
-export default InfoItem;

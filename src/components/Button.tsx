@@ -11,10 +11,10 @@ interface ButtonProps extends TouchableOpacityProps {
   color?: string;
 }
 
-const Button = ({ title, color, ...props }: ButtonProps) => {
+export const Button = ({ title, color, ...props }: ButtonProps) => {
   return (
     <TouchableOpacity
-      style={[styles.button, { backgroundColor: color }]}
+      style={[styles.button, color ? { backgroundColor: color } : {}]}
       {...props}
     >
       <Text style={styles.buttonText}>{title}</Text>
@@ -24,22 +24,17 @@ const Button = ({ title, color, ...props }: ButtonProps) => {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: "#6366F1",
+    backgroundColor: "#4338ca",
+    width: "100%",
     height: 56,
     borderRadius: 16,
     justifyContent: "center",
     alignItems: "center",
-    shadowColor: "#A2A7FF",
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.4,
-    shadowRadius: 8,
-    elevation: 4,
+    marginTop: 24,
   },
   buttonText: {
-    color: "#FFFFFF",
-    fontSize: 18,
-    fontWeight: "600",
+    color: "white",
+    fontSize: 16,
+    fontWeight: "700",
   },
 });
-
-export default Button;

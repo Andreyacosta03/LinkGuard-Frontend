@@ -12,7 +12,7 @@ interface InputProps extends TextInputProps {
   label: string;
 }
 
-const Input = ({ label, ...textInputProps }: InputProps) => {
+export const Input = ({ label, ...textInputProps }: InputProps) => {
   return (
     <View style={styles.container}>
       <Text style={styles.label}>{label}</Text>
@@ -49,5 +49,3 @@ const styles = StyleSheet.create({
   icon: { marginRight: 12 },
   input: { flex: 1, color: "#1e293b", fontSize: 16 },
 });
-
-export default Input;
