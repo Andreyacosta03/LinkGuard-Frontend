@@ -23,6 +23,8 @@ const ResultScreen = () => {
   const [scanResult, setScanResult] = useState<ScanResult | null>(null);
   const [error, setError] = useState<string>("");
 
+  const controller = new AbortController();
+  const { signal } = controller;
   const router = useRouter();
   // 1. Calculate status based on scanResult
   const status = scanResult?.data.analysis.isMalicious
@@ -52,6 +54,7 @@ const ResultScreen = () => {
             "Content-Type": "application/json",
             Accept: "application/json",
           },
+          signal,
           body: JSON.stringify({ url }),
         }).then((res) => {
           if (!res.ok) throw new Error(`Error servidor: ${res.status}`);
@@ -66,8 +69,12 @@ const ResultScreen = () => {
         setScanResult(data);
         console.log("✅ Scan result:", data);
       } catch (err: any) {
-        console.error("❌ Error:", err.message);
-        setError("No se pudo conectar con el servidor de seguridad.");
+        if (err.name === "AbortError") {
+          console.log("Solicitud cancelada por el usuario.");
+        } else {
+          console.error("❌ Error:", err.message);
+          setError("No se pudo conectar con el servidor de seguridad.");
+        }
       } finally {
         setIsLoading(false);
       }
@@ -76,6 +83,10 @@ const ResultScreen = () => {
     if (url) {
       getSecurityData();
     }
+
+    return () => {
+      controller.abort();
+    };
   }, [url]);
 
   if (isLoading)
