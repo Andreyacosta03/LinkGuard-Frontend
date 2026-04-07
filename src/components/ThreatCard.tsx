@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from "react-native";
-import { Tip } from "../components/Tip";
+import { Tip } from "./Tip";
 
 interface ThreatCardProps {
   threatsCount: number;
