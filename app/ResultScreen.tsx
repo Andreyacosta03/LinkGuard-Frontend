@@ -91,7 +91,10 @@ const ResultScreen = () => {
     <SafeAreaView
       style={[styles.container, { backgroundColor: theme.bgColor }]}
     >
-      <ScrollView contentContainerStyle={styles.scrollContent}>
+      <ScrollView
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+      >
         {/* Upper shield container */}
         <View style={styles.headerSection}>
           <View
@@ -150,8 +153,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#f1fcf6",
+    alignItems: "center",
+    justifyContent: "center",
   },
   scrollContent: {
+    width: "90%",
+    maxWidth: 600,
     paddingHorizontal: 24,
     paddingVertical: 40,
     alignItems: "center",

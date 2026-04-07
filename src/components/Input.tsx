@@ -47,5 +47,10 @@ const styles = StyleSheet.create({
     height: 56,
   },
   icon: { marginRight: 12 },
-  input: { flex: 1, color: "#1e293b", fontSize: 16 },
+  input: {
+    flex: 1,
+    color: "#1e293b",
+    fontSize: 16,
+    ...({ outlineStyle: "none" } as any),
+  },
 });
