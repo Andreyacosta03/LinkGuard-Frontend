@@ -23,8 +23,6 @@ const ResultScreen = () => {
   const [scanResult, setScanResult] = useState<ScanResult | null>(null);
   const [error, setError] = useState<string>("");
 
-  const controller = new AbortController();
-  const { signal } = controller;
   const router = useRouter();
   // 1. Calculate status based on scanResult
   const status = scanResult?.data.analysis.isMalicious
@@ -43,6 +41,8 @@ const ResultScreen = () => {
   const threatsCount = filteredThreats.length;
 
   useEffect(() => {
+    const controller = new AbortController();
+    const { signal } = controller;
     const getSecurityData = async () => {
       setIsLoading(true);
       setError("");
@@ -103,6 +103,7 @@ const ResultScreen = () => {
       style={[styles.container, { backgroundColor: theme.bgColor }]}
     >
       <ScrollView
+        style={{ width: "100%", maxWidth: 480 }}
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
@@ -168,8 +169,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   scrollContent: {
-    width: "100%",
-    maxWidth: 600,
+    flexGrow: 1,
     paddingHorizontal: 24,
     paddingVertical: 40,
     alignItems: "center",
@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
     shadowRadius: 12,
   },
   mainTitle: {
-    fontSize: 30,
+    fontSize: 28,
     fontWeight: "800",
     color: "#0f172a",
     textAlign: "center",

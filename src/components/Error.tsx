@@ -7,53 +7,72 @@ import { useRouter } from "expo-router";
 export const ErrorDisplay = ({ error }: { error: string }) => {
   const router = useRouter();
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.errorContent}>
-        {/* Visual Error Icon */}
-        <View style={styles.shieldWrapper}>
-          <Icon variant="shield" status="malicious" size={60} color="#ef4444" />
+    <SafeAreaView style={styles.box}>
+      <View style={styles.container}>
+        <View style={styles.errorContent}>
+          {/* Visual Error Icon */}
+          <View style={styles.shieldWrapper}>
+            <Icon
+              variant="shield"
+              status="malicious"
+              size={60}
+              color="#ef4444"
+            />
+          </View>
+
+          <Text style={styles.errorTitle}>¡Ups! Algo salió mal</Text>
+          <Text style={styles.errorSubtitle}>
+            {error || "No pudimos completar el análisis en este momento"}
+          </Text>
+
+          {/* Help card */}
+          <View style={styles.errorCard}>
+            <Text style={styles.errorCardTitle}>¿Qué puede estar pasando?</Text>
+            <View style={styles.errorStep}>
+              <View style={styles.dot} />
+              <Text style={styles.errorStepText}>
+                Tu conexión a internet es inestable.
+              </Text>
+            </View>
+            <View style={styles.errorStep}>
+              <View style={styles.dot} />
+              <Text style={styles.errorStepText}>
+                El servidor está saturado.
+              </Text>
+            </View>
+            <View style={styles.errorStep}>
+              <View style={styles.dot} />
+              <Text style={styles.errorStepText}>
+                No se pudo establecer conexión con el servidor.
+              </Text>
+            </View>
+          </View>
+
+          <TouchableOpacity
+            onPress={() => router.back()}
+            style={styles.secondaryButton}
+          >
+            <Text style={styles.secondaryButtonText}>Volver al Inicio</Text>
+          </TouchableOpacity>
         </View>
-
-        <Text style={styles.errorTitle}>¡Ups! Algo salió mal</Text>
-        <Text style={styles.errorSubtitle}>
-          {error || "No pudimos completar el análisis en este momento"}
-        </Text>
-
-        {/* Help card */}
-        <View style={styles.errorCard}>
-          <Text style={styles.errorCardTitle}>¿Qué puede estar pasando?</Text>
-          <View style={styles.errorStep}>
-            <View style={styles.dot} />
-            <Text style={styles.errorStepText}>
-              Tu conexión a internet es inestable.
-            </Text>
-          </View>
-          <View style={styles.errorStep}>
-            <View style={styles.dot} />
-            <Text style={styles.errorStepText}>El servidor está saturado.</Text>
-          </View>
-          <View style={styles.errorStep}>
-            <View style={styles.dot} />
-            <Text style={styles.errorStepText}>
-              No se pudo establecer conexión con el servidor.
-            </Text>
-          </View>
-        </View>
-
-        <TouchableOpacity
-          onPress={() => router.back()}
-          style={styles.secondaryButton}
-        >
-          <Text style={styles.secondaryButtonText}>Volver al Inicio</Text>
-        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  box: {
+    flex: 1,
+    backgroundColor: "#fef2f2",
+    alignItems: "center",
+    justifyContent: "center",
+  },
   container: {
     flex: 1,
+    width: "100%",
+    maxWidth: 480,
+    alignItems: "center",
+    justifyContent: "center",
     backgroundColor: "#fef2f2",
   },
   shieldWrapper: {
