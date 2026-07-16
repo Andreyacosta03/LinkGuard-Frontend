@@ -52,3 +52,8 @@ Firebase
 
 npm install
 npx expo start
+
+<p align="center">
+  <video src="https://github.com/user-attachments/assets/0114b758-8395-4209-a667-2ecbc9edd757
+" width="250" autoplay loop muted playsinline style="border-radius: 8px;"></video>
+</p>
