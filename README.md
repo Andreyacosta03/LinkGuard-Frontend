@@ -53,7 +53,13 @@ Firebase
 npm install
 npx expo start
 
-<p align="center">
-  <video src="https://github.com/user-attachments/assets/0114b758-8395-4209-a667-2ecbc9edd757
-" width="250" autoplay loop muted playsinline style="border-radius: 8px;"></video>
+<h3 align="left">App mockups</h3>
+<p align="left">
+  <img width="200" height="400" hspace="10" alt="Index Screen" src="https://github.com/user-attachments/assets/c298e206-0f63-4494-93e5-00df59822783" />
+  <img width="200" height="400" hspace="10" alt="Panel Principal" src="https://github.com/user-attachments/assets/5137501b-6fb2-4508-be06-fd159c1f5859" />
+  <img width="200" height="400" hspace="10" alt="Perfil de Usuario" src="https://github.com/user-attachments/assets/15918113-2593-4356-bdc0-89ebc9bf5d20" />
+  <img width="200" height="400" hspace="10" alt="Perfil de Usuario" src="https://github.com/user-attachments/assets/4255034c-68fd-4ac0-8202-75dc4467b28f" />
 </p>
+
+
+
