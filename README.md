@@ -1,10 +1,10 @@
-🛡️ LinkGuard
+### 🛡️ LinkGuard
 
 LinkGuard is a mobile security-focused application built with React Native and Expo that helps users quickly determine whether a URL or QR code is safe or potentially dangerous.
 
 The app is designed to be fast and accessible: users can analyze links instantly without creating an account. Authentication is optional and only required for advanced features such as viewing analysis history.
 
-🚀 Key Features
+### Key Features
 
 -URL analysis – Paste a link and instantly check if it’s safe
 
@@ -14,9 +14,9 @@ The app is designed to be fast and accessible: users can analyze links instantly
 
 -Analysis history – Stored locally or linked to a user account
 
-🎨 Modern UI – Clean
+Modern UI – Clean
 
-🧠 Technical Highlights
+Technical Highlights
 
 Built with React Native + Expo
 
@@ -24,7 +24,7 @@ File-based routing using Expo Router
 
 Clean and scalable architecture
 
-🎯 Project Goal
+### Project Goal
 
 This project was created as a portfolio application to demonstrate:
 
@@ -36,7 +36,7 @@ Integration with external security APIs
 
 Professional development workflow using Git and GitHub
 
-🛠️ Tech Stack
+### Tech Stack
 
 React Native
 
@@ -52,3 +52,14 @@ Firebase
 
 npm install
 npx expo start
+
+<h3 align="left">App mockups</h3>
+<p align="left">
+  <img width="200" height="400" hspace="10" alt="Index Screen" src="https://github.com/user-attachments/assets/c298e206-0f63-4494-93e5-00df59822783" />
+  <img width="200" height="400" hspace="10" alt="Panel Principal" src="https://github.com/user-attachments/assets/5137501b-6fb2-4508-be06-fd159c1f5859" />
+  <img width="200" height="400" hspace="10" alt="Perfil de Usuario" src="https://github.com/user-attachments/assets/15918113-2593-4356-bdc0-89ebc9bf5d20" />
+  <img width="200" height="400" hspace="10" alt="Perfil de Usuario" src="https://github.com/user-attachments/assets/4255034c-68fd-4ac0-8202-75dc4467b28f" />
+</p>
+
+
+
