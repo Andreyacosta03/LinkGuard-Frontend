@@ -53,6 +53,9 @@ Firebase
 npm install
 npx expo start
 
+### App link Android 
+https://expo.dev/accounts/andrey_003/projects/linkguard/builds/7f6b0b7f-4b0f-4cb9-9a4b-3f2fe47d2549
+
 <h3 align="left">App mockups</h3>
 <p align="left">
   <img width="200" height="400" hspace="10" alt="Index Screen" src="https://github.com/user-attachments/assets/c298e206-0f63-4494-93e5-00df59822783" />
